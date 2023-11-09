@@ -1,0 +1,68 @@
+一些问题，windows上git rebase弹出的窗口会自动关闭，想修改什么得拼手速，先把窗口内容迅速复制下来，改后后再次git rebase，然后看手速将改后内容复制进去，慢了就得再来。很神奇
+
+任务1
+git checkout main
+git checkout -b feature-newFunc
+
+git add mydiary/diary.txt 
+git commit -m "Added diary entry for feature work"
+git add mydiary/diary.txt 
+git commit -m "Added another diary entry for feature work"
+
+git rebase -i HEAD~2
+    pick fd8288b Added diary entry for feature work
+squash 0b3b9e7 Added another diary entry for feature work
+
+git push origin feature-newFunc 
+git checkout main
+git merge feature-newFunc
+git push origin main
+
+
+任务2
+
+git checkout main
+git log experiment
+(commit d58314c014e17c0f8091e4f715836e14815e443d 对应Added new approach details.)
+git cherry-pick d58314c014e17c0f8091e4f715836e14815e443d
+git push origin main
+
+任务3
+git checkout dev
+git log
+git revert HEAD^^..HEAD
+git push origin dev
+
+
+任务4
+git checkout main
+git add frontend/styles.css   
+git commit -m "In subproblem 4, change styles.css for font-family"
+git push origin main  
+
+git checkout feature-upload
+git diff main feature-upload
+
+git checkout main
+git merge feature-upload
+解决冲突，传入+当前组合，即保留main中的Times New Roman, 并加入feature-upload中的button
+git merge --continue
+git add frontend/styles.css
+git push origin main
+
+
+任务5
+
+git checkout -b documentation --track origin/documentation
+git log
+
+git rebase -i HEAD~4  
+    pick 2fc2e17 Add contributing guide 
+pick 1d3dee7 Update project overview with new feature description 
+squash 9caa536 Fix description in project overview 
+pick 9cf2a7d Add installation guide
+
+git push origin documentation --force
+git checkout main
+git merge documentation
+git push origin main
