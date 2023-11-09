@@ -11,7 +11,7 @@ git commit -m "Added another diary entry for feature work"
 
 git rebase -i HEAD~2
     pick fd8288b Added diary entry for feature work
-squash 0b3b9e7 Added another diary entry for feature work
+    squash 0b3b9e7 Added another diary entry for feature work
 
 git push origin feature-newFunc 
 git checkout main
@@ -22,8 +22,7 @@ git push origin main
 任务2
 
 git checkout main
-git log experiment
-(commit d58314c014e17c0f8091e4f715836e14815e443d 对应Added new approach details.)
+git log experiment (commit d58314c014e17c0f8091e4f715836e14815e443d 对应Added new approach details.)
 git cherry-pick d58314c014e17c0f8091e4f715836e14815e443d
 git push origin main
 
@@ -58,9 +57,9 @@ git log
 
 git rebase -i HEAD~4  
     pick 2fc2e17 Add contributing guide 
-pick 1d3dee7 Update project overview with new feature description 
-squash 9caa536 Fix description in project overview 
-pick 9cf2a7d Add installation guide
+    pick 1d3dee7 Update project overview with new feature description 
+    squash 9caa536 Fix description in project overview 
+    pick 9cf2a7d Add installation guide
 
 git push origin documentation --force
 git checkout main
